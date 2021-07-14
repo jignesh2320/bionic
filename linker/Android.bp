@@ -33,7 +33,6 @@ cc_object {
         "-Wextra",
         "-Wno-unused",
         "-Werror",
-        "-O3",
     ],
 
     srcs: [
@@ -256,8 +255,6 @@ cc_defaults {
         "-Wl,-soname,ld-android.so",
     ],
 
-    cflags: ["-O3"],
-
     // we are going to link libc++_static manually because
     // when stl is not set to "none" build system adds libdl
     // to the list of static libraries which needs to be
@@ -356,34 +353,7 @@ cc_binary {
             static_libs: [
                 "liblinker_debuggerd_stub",
             ],
-        },
-        android_arm64: {
-            pgo: {
-                profile_file: "bionic/linker_arm_arm64.profdata",
-            },
-        },
-        android_arm: {
-            pgo: {
-                profile_file: "bionic/linker_arm_arm64.profdata",
-            },
-        },
-        android_x86_64: {
-            pgo: {
-                profile_file: "bionic/linker_x86_x86_64.profdata",
-            },
-        },
-        android_x86: {
-            pgo: {
-                profile_file: "bionic/linker_x86_x86_64.profdata",
-            },
-        },
-    },
-    pgo: {
-        sampling: true,
-    },
-
-    lto: {
-        never: true,
+        }
     },
 }
 
@@ -431,7 +401,6 @@ cc_library {
         "-Wextra",
         "-Wunused",
         "-Werror",
-        "-O3",
     ],
     stl: "none",
 
@@ -455,10 +424,6 @@ cc_library {
         "//apex_available:platform",
         "com.android.runtime",
     ],
-
-    lto: {
-        never: true,
-    },
 }
 
 cc_test {

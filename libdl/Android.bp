@@ -18,7 +18,6 @@ cc_library_static {
         "-Wextra",
         "-Wunused",
         "-Werror",
-        "-O3",
     ],
 
     // For private/CFIShadow.h.
@@ -122,10 +121,6 @@ cc_library {
         "//apex_available:platform",
         "com.android.runtime",
     ],
-
-    lto: {
-        never: true,
-    },
 }
 
 cc_library {
@@ -174,7 +169,6 @@ cc_library {
         "-Wextra",
         "-Wunused",
         "-Werror",
-        "-O3",
     ],
 
     stl: "none",
@@ -202,10 +196,6 @@ cc_library {
         "//apex_available:platform",
         "com.android.runtime",
     ],
-
-    lto: {
-        never: true,
-    },
 }
 
 ndk_library {
